@@ -130,14 +130,24 @@ public class OnboardingFlow extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            // Return a WelcomeFragment (defined as a static inner class below).
+
+            switch(position) {
+                case 0:
+                    return WelcomeFragment.newInstance(position);
+                case 1:
+                    return SetUpOAuthFragment.newInstance(position);
+            }
+            return WelcomeFragment.newInstance(position + 1);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 2 total pages.
+            return 2;
+        }
+    }
+
         }
     }
 }
